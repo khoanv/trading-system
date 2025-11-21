@@ -8,6 +8,10 @@ export async function fetchInvoices(filters: InvoiceFilters): Promise<InvoiceLis
         page: page.toString(),
         pageSize: pageSize.toString()
     })
+	
+	if (customerName) {
+        params.append('customerName', customerName);
+    }
 
     const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
